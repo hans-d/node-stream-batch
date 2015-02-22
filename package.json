@@ -17,6 +17,10 @@
   ],
   "author": "Hans Donner <hans.donner@pobox.com>",
   "license": "MIT",
+  "repository" :
+    { "type" : "git"
+    , "url" : "https://github.com/hans-d/node-stream-batch.git"
+    },
   "dependencies": {
     "through2": "^0.6.3"
   }
