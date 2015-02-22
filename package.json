@@ -1,0 +1,23 @@
+{
+  "name": "stream-batch",
+  "version": "0.0.0",
+  "description": "Group items into batches (arrays). A batch is send 1) when it reached its maxSize, 2) when maxWait ms since last item no new items are received or 3) when the first item in the batch is already maxTime ms old",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "coffee --bare --no-header --compile --map --output dist src/index.litcoffee",
+    "build:clean": "npm run clean && npm run build",
+    "clean": "rm -rf dist",
+    "prepublish": "npm run build:clean"
+  },
+  "keywords": [
+    "stream",
+    "batch",
+    "debounce"
+  ],
+  "author": "Hans Donner <hans.donner@pobox.com>",
+  "license": "MIT",
+  "dependencies": {
+    "through2": "^0.6.3"
+  }
+}

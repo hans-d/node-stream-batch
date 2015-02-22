@@ -1,0 +1,6 @@
+dev:
+  build: .
+  command: bash
+
+  volumes:
+    - ./:/app
