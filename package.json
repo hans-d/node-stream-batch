@@ -1,6 +1,6 @@
 {
   "name": "stream-batch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Group items into batches, defined by size or time.",
   "main": "dist/index.js",
   "scripts": {
@@ -17,10 +17,10 @@
   ],
   "author": "Hans Donner <hans.donner@pobox.com>",
   "license": "MIT",
-  "repository" :
-    { "type" : "git"
-    , "url" : "https://github.com/hans-d/node-stream-batch.git"
-    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hans-d/node-stream-batch.git"
+  },
   "dependencies": {
     "through2": "^0.6.3"
   }
