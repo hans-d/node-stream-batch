@@ -1,27 +1,29 @@
 {
   "name": "stream-batch",
   "version": "0.0.3",
+  "author": "Hans Donner <hans.donner@pobox.com>",
+  "license": "MIT",
   "description": "Group items into batches, defined by size or time.",
+  "keywords": [
+    "stream",
+    "batch",
+    "debounce"
+  ],
+  "homepage": "https://github.com/hans-d/node-stream-batch",
+  "bugs": "https://github.com/hans-d/node-stream-batch/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hans-d/node-stream-batch.git"
+  },
   "main": "dist/index.js",
+  "dependencies": {
+    "through2": "^0.6.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "coffee --bare --no-header --compile --map --output dist src/index.litcoffee",
     "build:clean": "npm run clean && npm run build",
     "clean": "rm -rf dist",
     "prepublish": "npm run clean && npm run build"
-  },
-  "keywords": [
-    "stream",
-    "batch",
-    "debounce"
-  ],
-  "author": "Hans Donner <hans.donner@pobox.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hans-d/node-stream-batch.git"
-  },
-  "dependencies": {
-    "through2": "^0.6.3"
   }
 }

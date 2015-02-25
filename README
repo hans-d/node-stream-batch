@@ -1,0 +1,43 @@
+stream-batch
+===========
+
+Batch streaming items. A batch is created whenever:
+- maxWait ms since last items has arrived  (100)
+- maxTime ms since first item in current batch arrived (infinity)
+- maxItems items are in the batch (infinity)
+
+A batch is an array of the collected events, and can be of different sizes.
+
+Usage example code:
+```
+var batch = require('stream-batch');
+
+var someStream = ... // whatever stream
+    .pipe batch()
+    .pipe .... // whatever you want to do next
+
+```
+
+
+It could be used eg:
+-  streams where new items are received in bursts of unknown size,
+   where you want to react to the burst and not to the
+   individual items (but still need them for you actions)
+- streams where new items are received that you want to work on in
+  batches, but the speed of the receipt is unpredictable, eg due
+  to network conditions, load of external servers etc.
+
+Eg:
+- updating/recalculating stuff using new data received from a
+  server, where the action to be perormed is better done on sets
+  of data instead of each single item.
+  Instead of batching them in fixed sizes, it can be constrained in
+  time:
+    - 200 ms after the last item is received:
+      `batch({ maxWait: 200})`
+    - 200 ms after the last item is received, but no longer as 500 ms
+      after the first item was received:
+      `batch({ maxWait: 200, maxTime: 500})`
+    - 200 ms after the last item is received, but no longer as 500 ms
+      after the first item was received or there are 100 items:
+      `batch({ maxWait: 200, maxTime: 500, maxItems: 100})`

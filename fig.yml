@@ -4,3 +4,5 @@ dev:
 
   volumes:
     - ./:/app
+    - ../npmrc:/root/.npmrc
+
