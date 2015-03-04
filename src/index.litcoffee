@@ -35,7 +35,7 @@ Flush when batch has reached its limit.
             batches[batchId].push data
             clearTimeout timeoutWait if timeoutWait
 
-            if opts.maxItems && batch.length >= opts.maxItems
+            if opts.maxItems && batches[batchId].length >= opts.maxItems
                 flush()
             else
                 setFlushTimeout()

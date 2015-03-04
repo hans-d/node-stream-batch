@@ -25,7 +25,7 @@ module.exports = function(opts) {
     if (timeoutWait) {
       clearTimeout(timeoutWait);
     }
-    if (opts.maxItems && batch.length >= opts.maxItems) {
+    if (opts.maxItems && batches[batchId].length >= opts.maxItems) {
       flush();
     } else {
       setFlushTimeout();
