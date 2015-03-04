@@ -45,7 +45,7 @@ Flush when batch has reached its limit.
 Write the collected batch to the pipe, and start a new batch.
 
         flush = () ->
-            return unless batch.length
+            return unless batches[batchId].length
 
             if timeoutFirst
                 clearTimeout timeoutFirst
