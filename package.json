@@ -19,21 +19,31 @@
   "dependencies": {
     "through2": "^0.6.3"
   },
+  "config": {
+    "blanket": {
+      "pattern": "./src",
+      "loader": "./node-loaders/coffee-script"
+    }
+  },
   "scripts": {
     "test": "mocha --recursive --compilers coffee:coffee-script/register test/*",
     "test:watch": "mocha --watch --recursive --compilers coffee:coffee-script/register test/*",
+    "test:cov": "mocha --require blanket --recursive --compilers coffee:coffee-script/register --reporter mocha-text-cov test/*",
+    "test:cov:nice": "mocha --require blanket --recursive --compilers coffee:coffee-script/register --reporter html-cov test/*> coverage.html",
     "build": "coffee --bare --no-header --compile --map --output dist src/index.litcoffee",
     "build:clean": "npm run clean && npm run build",
     "clean": "rm -rf dist",
     "prepublish": "npm run clean && npm run build",
-    "fix:docker": "npm run fix:chgrp && npm run fix:chmod",
+    "fix:perm": "npm run fix:chgrp && npm run fix:chmod",
     "fix:chgrp": "chgrp -R $(ls -l Dockerfile | awk '{ print $4 }') *",
     "fix:chmod": "chmod -R g+rw *"
   },
   "devDependencies": {
+    "blanket": "^1.1.6",
     "chai": "^2.1.1",
     "coffee-script": "^1.9.1",
     "mocha": "^2.1.0",
+    "mocha-text-cov": "^0.1.0",
     "stream-assert": "^2.0.2"
   }
 }
