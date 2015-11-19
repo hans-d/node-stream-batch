@@ -1,0 +1,17 @@
+code:
+  image: busybox:latest
+  volumes:
+    - ./:/app
+
+npmrc:
+  image: busybox:latest
+  volumes:
+    - ./npmrc:/root/.npmrc
+
+dev:
+  build: .
+  command: bash
+
+  volumes_from:
+    - code
+    - npmrc

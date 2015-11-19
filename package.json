@@ -1,6 +1,6 @@
 {
   "name": "stream-batch",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "author": "Hans Donner <hans.donner@pobox.com>",
   "license": "MIT",
   "description": "Group items into batches, defined by size or time.",

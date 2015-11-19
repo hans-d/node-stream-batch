@@ -34,7 +34,7 @@ module.exports = function(opts) {
   };
   flush = function() {
     var previous;
-    if (!batch.length) {
+    if (!batches[batchId].length) {
       return;
     }
     if (timeoutFirst) {
